@@ -37,9 +37,10 @@ import android.widget.LinearLayout;
 import com.tt.refreshlayout.R;
 import com.tt.refreshlayout.pullrefresh.internal.FlipLoadingLayout;
 import com.tt.refreshlayout.pullrefresh.internal.LoadingLayout;
-import com.tt.refreshlayout.pullrefresh.internal.RotateLoadingLayout;
+import com.tt.refreshlayout.pullrefresh.internal.TimeLoadingLayout;
 import com.tt.refreshlayout.pullrefresh.internal.Utils;
 import com.tt.refreshlayout.pullrefresh.internal.ViewCompat;
+import com.tt.refreshlayout.pullrefresh.internal.RoteLoadingLayout;
 
 
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout implements IPullToRefresh<T> {
@@ -1285,18 +1286,16 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
         /**
          * This is the default for Android-PullToRefresh. Allows you to use any
          * drawable, which is automatically rotated and used as a Progress Bar.
-         *
+         * <p/>
          * 这是Android-PullToRefresh的默认值。 允许您使用任何绘图，它会自动旋转并用作进度栏。
-         *
          */
         ROTATE,
 
         /**
          * This is the old default, and what is commonly used on iOS. Uses an
          * arrow image which flips depending on where the user has scrolled.
-         *
-         *  这是旧的默认值，以及iOS上常用的默认值。 使用根据用户滚动的位置翻转的箭头图像。
-         *
+         * <p/>
+         * 这是旧的默认值，以及iOS上常用的默认值。 使用根据用户滚动的位置翻转的箭头图像。
          */
         FLIP;
 
@@ -1329,8 +1328,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
                     return new FlipLoadingLayout(context, mode, scrollDirection, attrs);
                 case ROTATE:
                 default:
-//                    return new RotateLoadingLayout(context, mode, scrollDirection, attrs);
+//                    return new RoteLoadingLayout(context, mode, scrollDirection, attrs);
                     return new FlipLoadingLayout(context, mode, scrollDirection, attrs);
+//                    return new TimeLoadingLayout(context, mode, scrollDirection, attrs);
+
             }
         }
     }

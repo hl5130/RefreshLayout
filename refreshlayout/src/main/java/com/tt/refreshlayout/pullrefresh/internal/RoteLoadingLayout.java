@@ -1,18 +1,20 @@
+
 /*******************************************************************************
  * Copyright 2011, 2012 Chris Banes.
- * <p/>
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p/>
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * <p/>
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
+
 package com.tt.refreshlayout.pullrefresh.internal;
 
 import android.content.Context;
@@ -21,27 +23,33 @@ import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
-import android.widget.ImageView.ScaleType;
+import android.widget.ImageView;
 
 import com.tt.refreshlayout.R;
 import com.tt.refreshlayout.pullrefresh.views.PullToRefreshBase.Mode;
 import com.tt.refreshlayout.pullrefresh.views.PullToRefreshBase.Orientation;
 
-public class RotateLoadingLayout extends LoadingLayout {
+
+/**
+ * Created by Administrator on 2016/11/23.
+ */
+public class RoteLoadingLayout extends LoadingLayout{
 
     static final int ROTATION_ANIMATION_DURATION = 1200;
 
     private final Animation mRotateAnimation;
     private final Matrix mHeaderImageMatrix;
-    private final boolean mRotateDrawableWhilePulling;
+
     private float mRotationPivotX, mRotationPivotY;
 
-    public RotateLoadingLayout(Context context, Mode mode, Orientation scrollDirection, TypedArray attrs) {
+    private final boolean mRotateDrawableWhilePulling;
+
+    public RoteLoadingLayout(Context context, Mode mode, Orientation scrollDirection, TypedArray attrs) {
         super(context, mode, scrollDirection, attrs);
 
         mRotateDrawableWhilePulling = attrs.getBoolean(R.styleable.PullToRefresh_ptrRotateDrawableWhilePulling, true);
 
-        mHeaderImage.setScaleType(ScaleType.MATRIX);
+        mHeaderImage.setScaleType(ImageView.ScaleType.MATRIX);
         mHeaderImageMatrix = new Matrix();
         mHeaderImage.setImageMatrix(mHeaderImageMatrix);
 
@@ -51,7 +59,6 @@ public class RotateLoadingLayout extends LoadingLayout {
         mRotateAnimation.setDuration(ROTATION_ANIMATION_DURATION);
         mRotateAnimation.setRepeatCount(Animation.INFINITE);
         mRotateAnimation.setRepeatMode(Animation.RESTART);
-
     }
 
     public void onLoadingDrawableSet(Drawable imageDrawable) {
@@ -103,8 +110,6 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override
     protected int getDefaultDrawableResId() {
-        //return R.drawable.lhm;
-        return R.drawable.qianfan_loading_defaults2;
+        return R.drawable.default_ptr_rotate;
     }
-
 }

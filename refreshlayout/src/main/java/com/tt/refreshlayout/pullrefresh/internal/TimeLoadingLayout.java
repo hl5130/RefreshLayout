@@ -29,21 +29,33 @@ public class TimeLoadingLayout extends LoadingLayout {
 
     }
 
+    /**
+     * 拉动中
+     */
     @Override
     protected void pullToRefreshImpl() {
 
     }
 
+    /**
+     * 刷新中
+     */
     @Override
     protected void refreshingImpl() {
 
     }
 
+    /**
+     * 释放刷新
+     */
     @Override
     protected void releaseToRefreshImpl() {
 
     }
 
+    /**
+     * 重启
+     */
     @Override
     protected void resetImpl() {
 
